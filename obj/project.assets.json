@@ -8,24 +8,31 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\AdriG\\.nuget\\packages\\": {}
+    "C:\\Users\\Luca Yeray\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AdriG\\Desktop\\Trabajo\\Insti\\Proyecto_LaserTag\\Fase4_WebExterna\\Fase4_WebExterna.csproj",
+      "projectUniqueName": "C:\\Users\\Luca Yeray\\source\\repos\\LaserTag_Fase4_WebExterna\\Fase4_WebExterna.csproj",
       "projectName": "Fase4_WebExterna",
-      "projectPath": "C:\\Users\\AdriG\\Desktop\\Trabajo\\Insti\\Proyecto_LaserTag\\Fase4_WebExterna\\Fase4_WebExterna.csproj",
-      "packagesPath": "C:\\Users\\AdriG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AdriG\\Desktop\\Trabajo\\Insti\\Proyecto_LaserTag\\Fase4_WebExterna\\obj\\",
+      "projectPath": "C:\\Users\\Luca Yeray\\source\\repos\\LaserTag_Fase4_WebExterna\\Fase4_WebExterna.csproj",
+      "packagesPath": "C:\\Users\\Luca Yeray\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Luca Yeray\\source\\repos\\LaserTag_Fase4_WebExterna\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\AdriG\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Luca Yeray\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -44,7 +51,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -68,7 +75,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100-rc.2.25502.107/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
