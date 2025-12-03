@@ -1,0 +1,42 @@
+﻿@page
+@model RegisterModel
+
+<h2>Registro de usuario</h2>
+
+<form method="post">
+    <div>
+        <label>Nombre</label>
+        <input asp-for="Input.Nom" />
+        <span asp-validation-for="Input.Nom"></span>
+    </div>
+
+    <div>
+        <label>Cognoms</label>
+        <input asp-for="Input.Cognoms" />
+        <span asp-validation-for="Input.Cognoms"></span>
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input asp-for="Input.Email" />
+        <span asp-validation-for="Input.Email"></span>
+    </div>
+
+    <div>
+        <label>Contraseña</label>
+        <input asp-for="Input.Contrasenya" type="password" />
+        <span asp-validation-for="Input.Contrasenya"></span>
+    </div>
+
+    <div>
+        <label>Repetir contraseña</label>
+        <input asp-for="Input.ConfirmarContrasenya" type="password" />
+        <span asp-validation-for="Input.ConfirmarContrasenya"></span>
+    </div>
+
+    <button type="submit">Registrarse</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

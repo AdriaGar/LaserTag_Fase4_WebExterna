@@ -1,7 +1,15 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Fase4_WebExterna.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// ⭐ Añadir conexión a SQL Server
+builder.Services.AddDbContext<LaserTagContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LaserTagBD")));
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
 
 var app = builder.Build();
 

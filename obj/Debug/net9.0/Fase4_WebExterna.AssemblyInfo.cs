@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Fase4_WebExterna")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a711c2b03b6b679acbc6e35221ca13718de74f2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0751662ca6a5025f79b62c1aefc0a67581138dee")]
 [assembly: System.Reflection.AssemblyProductAttribute("Fase4_WebExterna")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Fase4_WebExterna")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
