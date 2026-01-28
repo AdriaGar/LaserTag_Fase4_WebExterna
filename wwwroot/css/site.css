@@ -15,7 +15,8 @@ html {
 }
 
 body {
-    margin-bottom: 60px;
+    margin: 0;
+    padding: 0;
 }
 
 /* Bootstrap focus fixes */
@@ -125,7 +126,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: calc(100vh - 90px); /* altura total menos header */
+    min-height: calc(100vh - 120px); /* altura total menos header */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -168,3 +169,246 @@ body {
     .btn-hero:hover {
         background-color: #cc0000;
     }
+
+
+
+/* =========================
+   AUTH (LOGIN / REGISTER)
+   ========================= */
+
+.auth-background {
+    min-height: calc(100vh - 120px); /* menos el header */
+    background-image: url('/images/BackGround.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card central */
+.auth-card {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 40px 45px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 420px;
+    color: #E8E8D5;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+    .auth-card h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 28px;
+    }
+
+/* Form */
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        font-size: 15px;
+    }
+
+/* Botón */
+.btn-auth {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #C0392B;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    .btn-auth:hover {
+        background-color: #E74C3C;
+    }
+
+/* Error */
+.auth-error {
+    background-color: rgba(192, 57, 43, 0.2);
+    color: #ffb3b3;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* CONTENEDOR DE BOTONES */
+.auth-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* BOTONES BASE */
+.btn-auth {
+    flex: 1;
+    padding: 12px 0;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+    /* BOTÓN ENTRAR */
+    .btn-auth.primary {
+        background-color: #c0392b;
+        color: #fff;
+    }
+
+        .btn-auth.primary:hover {
+            background-color: #e74c3c;
+        }
+
+    /* BOTÓN REGISTRARSE */
+    .btn-auth.secondary {
+        background-color: #6b705c;
+        color: #fff;
+    }
+
+        .btn-auth.secondary:hover {
+            background-color: #8b8f7a;
+        }
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.main-footer {
+    background-color: #0f0f0f;
+    color: #cfcfcf;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Logo + nombre */
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+    .footer-brand img {
+        height: 50px;
+    }
+
+    .footer-brand p {
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin: 0;
+    }
+
+/* Links */
+.footer-links {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+    .footer-links a {
+        color: #cfcfcf;
+        text-decoration: none;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.2s ease;
+    }
+
+        .footer-links a:hover {
+            color: #ff3b3b;
+        }
+
+/* Parte inferior */
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 13px;
+    color: #999;
+}
+
+/* =========================
+   INSTALACIONES
+   ========================= */
+
+.instalaciones-background {
+    background-image: url('/images/BackGround.png');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 40px;
+    min-height: calc(100vh - 120px);
+}
+
+.instalaciones-title {
+    text-align: center;
+    color: #E8E8D5;
+    font-size: 42px;
+    margin-bottom: 60px;
+}
+
+/* Card */
+.instalacion-card {
+    background-color: rgba(0, 0, 0, 0.65);
+    border-radius: 14px;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto 40px auto;
+    color: #E8E8D5;
+}
+
+    .instalacion-card.reverse {
+        flex-direction: row-reverse;
+    }
+
+    .instalacion-card img {
+        width: 300px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+.instalacion-info h2 {
+    margin-bottom: 15px;
+    font-size: 26px;
+}
+
+.instalacion-info p {
+    margin: 6px 0;
+    font-size: 16px;
+}

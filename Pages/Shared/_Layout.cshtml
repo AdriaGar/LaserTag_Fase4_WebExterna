@@ -45,10 +45,24 @@
         @RenderBody()
     </main>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - Fase4_WebExterna -
-            <a asp-page="/Privacy">Privacy</a>
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="/images/logo.png" alt="Laser Tag Arena" />
+                <p>Laser Tag Arena</p>
+            </div>
+
+            <div class="footer-links">
+                <a asp-page="/Index">Inicio</a>
+                <a asp-page="/Experiencia">La experiencia</a>
+                <a asp-page="/Instalaciones">Instalaciones</a>
+                <a asp-page="/Reservations/Create">Reservar</a>
+                <a asp-page="/Privacy">Privacidad</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 · Laser Tag Arena · Todos los derechos reservados
         </div>
     </footer>
 

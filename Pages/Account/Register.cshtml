@@ -1,41 +1,56 @@
 ﻿@page
 @model RegisterModel
+@{
+    ViewData["Title"] = "Registro";
+}
 
-<h2>Registro de usuario</h2>
+<div class="auth-background">
+    <div class="auth-card">
+        <h1>Registro de usuario</h1>
 
-<form method="post">
-    <div>
-        <label>Nombre</label>
-        <input asp-for="Input.Nom" />
-        <span asp-validation-for="Input.Nom"></span>
+        <form method="post">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input asp-for="Input.Nom" />
+                <span asp-validation-for="Input.Nom" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Apellidos</label>
+                <input asp-for="Input.Cognoms" />
+                <span asp-validation-for="Input.Cognoms" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input asp-for="Input.Email" type="email" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input asp-for="Input.Contrasenya" type="password" />
+                <span asp-validation-for="Input.Contrasenya" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Repetir contraseña</label>
+                <input asp-for="Input.ConfirmarContrasenya" type="password" />
+                <span asp-validation-for="Input.ConfirmarContrasenya" class="text-danger"></span>
+            </div>
+
+            <div class="auth-actions">
+                <button type="submit" class="btn-auth primary">
+                    Registrarse
+                </button>
+
+                <a asp-page="/Account/Login" class="btn-auth secondary">
+                    Ya tengo cuenta
+                </a>
+            </div>
+        </form>
     </div>
-
-    <div>
-        <label>Cognoms</label>
-        <input asp-for="Input.Cognoms" />
-        <span asp-validation-for="Input.Cognoms"></span>
-    </div>
-
-    <div>
-        <label>Email</label>
-        <input asp-for="Input.Email" />
-        <span asp-validation-for="Input.Email"></span>
-    </div>
-
-    <div>
-        <label>Contraseña</label>
-        <input asp-for="Input.Contrasenya" type="password" />
-        <span asp-validation-for="Input.Contrasenya"></span>
-    </div>
-
-    <div>
-        <label>Repetir contraseña</label>
-        <input asp-for="Input.ConfirmarContrasenya" type="password" />
-        <span asp-validation-for="Input.ConfirmarContrasenya"></span>
-    </div>
-
-    <button type="submit">Registrarse</button>
-</form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

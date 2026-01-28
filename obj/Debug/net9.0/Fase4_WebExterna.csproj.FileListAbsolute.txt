@@ -316,4 +316,4 @@ C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\bin\Debug\net9.0\runt
 C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\obj\Debug\net9.0\Fase4_We.72CB4A54.Up2Date
 C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\bin\Debug\net9.0\BCrypt.Net-Next.dll
 C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
-C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\obj\Debug\net9.0\compressed\pqdmtcu3cc-{0}-9g11nsa35j-9g11nsa35j.gz
+C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\obj\Debug\net9.0\compressed\pqdmtcu3cc-{0}-276umnzv2t-276umnzv2t.gz

@@ -1,13 +1,34 @@
 ﻿@page
-@model Fase4_WebExterna.Pages.InstalacionesModel
 @{
     ViewData["Title"] = "Instalaciones";
 }
 
-<div class="container mt-5">
-    <h1>Nuestras instalaciones</h1>
-    <p>
-        Descubre nuestras salas, mapas y zonas de juego diseñadas
-        para ofrecer la mejor experiencia Laser Tag.
-    </p>
+<div class="instalaciones-background">
+
+    <h1 class="instalaciones-title">Nuestras instalaciones</h1>
+
+    <!-- SALA 1 -->
+    <div class="instalacion-card">
+        <img src="/images/sala1.jpg" alt="Sala 1">
+
+        <div class="instalacion-info">
+            <h2>Sala número 1</h2>
+            <p><strong>Jugadores:</strong> 5 vs 5</p>
+            <p><strong>Tiempo:</strong> 2:53</p>
+            <p><strong>Resultados:</strong> 30p / 20p</p>
+        </div>
+    </div>
+
+    <!-- SALA 2 -->
+    <div class="instalacion-card reverse">
+        <img src="/images/sala2.jpg" alt="Sala 2">
+
+        <div class="instalacion-info">
+            <h2>Sala número 2</h2>
+            <p><strong>Jugadores:</strong> 10 vs 10</p>
+            <p><strong>Tiempo:</strong> 5:25</p>
+            <p><strong>Resultados:</strong> 20p / 65p</p>
+        </div>
+    </div>
+
 </div>
