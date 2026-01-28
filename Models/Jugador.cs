@@ -35,6 +35,9 @@ public partial class Jugador
     [InverseProperty("IdJugadorNavigation")]
     public virtual ICollection<Puntuacio> Puntuacios { get; set; } = new List<Puntuacio>();
 
+    [InverseProperty("EmailJugadorNavigation")]
+    public virtual ICollection<Reserf> Reserves { get; set; } = new List<Reserf>();
+
     [ForeignKey("IdJugador")]
     [InverseProperty("IdJugadors")]
     public virtual ICollection<Equip> IdEquips { get; set; } = new List<Equip>();

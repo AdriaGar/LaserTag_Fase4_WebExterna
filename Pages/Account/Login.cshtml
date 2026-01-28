@@ -1,0 +1,20 @@
+﻿@page
+@model Fase4_WebExterna.Pages.Account.LoginModel
+
+<h1>Iniciar sesión</h1>
+
+<form method="post">
+    <div>
+        <label>Email:</label>
+        <input asp-for="Input.Email" />
+    </div>
+
+    <div>
+        <label>Contraseña:</label>
+        <input asp-for="Input.Contrasenya" type="password" />
+    </div>
+
+    <button type="submit">Entrar</button>
+
+    <p style="color:red">@Model.ErrorMessage</p>
+</form>

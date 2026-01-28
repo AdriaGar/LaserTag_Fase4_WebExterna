@@ -1,0 +1,86 @@
+﻿@page
+@model Fase4_WebExterna.Pages.Account.ProfileModel
+
+<h1>Mi Perfil</h1>
+
+<div style="display:flex; gap:40px; margin-top:20px; align-items:flex-start;">
+
+    <!-- FOTO DE PERFIL -->
+    <div>
+        <img src="/images/default-profile.png"
+             style="width:150px;height:150px;border-radius:50%;object-fit:cover;border:2px solid #ddd;" />
+    </div>
+
+    <!-- DATOS DEL USUARIO -->
+    <div>
+        <p><strong>Nombre:</strong> @Model.Jugador?.Nom</p>
+        <p><strong>Cognoms:</strong> @Model.Jugador?.Cognoms</p>
+        <p><strong>Email:</strong> @Model.Jugador?.Email</p>
+        <p><strong>Fecha de registro:</strong> @Model.Jugador?.DataRegistre</p>
+
+        <br />
+
+        <a href="/Account/EditProfile">Editar datos</a> |
+        <a href="/Account/ChangePassword">Cambiar contraseña</a>
+        <br />
+        <a href="/Account/Logout" style="color:red;">Cerrar sesión</a>
+    </div>
+</div>
+
+<hr />
+
+<h2>Mis Reservas</h2>
+
+@if (Model.Reserves == null || !Model.Reserves.Any())
+{
+    <p>No tienes reservas realizadas.</p>
+}
+else
+{
+    <div style="display:flex; flex-direction:column; gap:20px; margin-top:20px;">
+
+        @foreach (var r in Model.Reserves)
+        {
+            var partida = r.IdPartidaNavigation;
+
+            <div style="
+                    background:#ffffff;
+                    border-radius:12px;
+                    padding:20px;
+                    box-shadow:0 2px 6px rgba(0,0,0,0.15);
+                    max-width:500px;
+                ">
+
+                <div style="font-size:18px; font-weight:bold; margin-bottom:10px;">
+                    📅 @r.DataReserva
+                    &nbsp;&nbsp; 🕒 @r.HoraReserva - @partida?.DataFi?.Split(" ")[1]
+                </div>
+
+                <div style="margin-bottom:6px;">
+                    🎮 <strong>Modo:</strong> @partida?.ModeJoc
+                </div>
+
+                <div style="margin-bottom:10px;">
+                    🔵 <strong>Estado:</strong> @r.EstatReserva
+                </div>
+
+                <form method="post" asp-page-handler="Cancel" onsubmit="return confirmarCancelacion();">
+                    <input type="hidden" name="idReserva" value="@r.IdReserva" />
+                    <button type="submit"
+                            style="background:#ff4d4d;color:white;border:none;padding:10px 15px;border-radius:6px;cursor:pointer;font-weight:bold;">
+                        Cancelar reserva
+                    </button>
+                </form>
+
+                <script>
+                    function confirmarCancelacion() {
+                        return confirm("¿Seguro que deseas cancelar esta reserva?");
+                    }
+                </script>
+
+            </div>
+        }
+
+    </div>
+
+}

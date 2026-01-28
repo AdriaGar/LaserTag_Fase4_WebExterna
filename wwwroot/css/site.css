@@ -1,31 +1,170 @@
+﻿/* =========================
+   CONFIGURACIÓN GENERAL
+   ========================= */
+
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    html {
+        font-size: 16px;
+    }
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+/* Bootstrap focus fixes */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+/* Floating labels */
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
+    color: var(--bs-secondary-color);
+    text-align: end;
 }
+
+.form-floating > .form-control-plaintext:focus::placeholder,
+.form-floating > .form-control:focus::placeholder {
+    text-align: start;
+}
+
+/* =========================
+   HEADER LASER TAG (MILITAR)
+   ========================= */
+.military-header {
+    background-color: #9C8F6A; /* Marrón militar claro */
+    height: 120px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+    /* Logo */
+    .military-header .logo {
+        height: 150px;
+        width: auto;
+    }
+
+/* =========================
+   MENÚ PRINCIPAL
+   ========================= */
+
+.header-nav {
+    display: flex;
+    gap: 10px; /* separación entre botones */
+}
+
+.header-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 20px;          /* ⬅️ hace el bloque grande */
+    font-size: 18px;             /* ⬅️ texto más grande */
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: #E8E8D5;
+    text-decoration: none;
+
+    border-radius: 6px;          /* esquinas suaves */
+    transition: 
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+/* HOVER: TODO EL CUADRADO */
+.header-nav a:hover {
+    background-color: rgba(0, 0, 0, 0.25); /* ⬅️ bloque completo */
+    color: #C7FF5E;
+}
+
+/* Login button */
+.login-btn {
+    padding: 10px 18px;
+    background-color: rgba(0, 0, 0, 0.25); /* neutro militar */
+    color: #E8E8D5;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+    .login-btn:hover {
+        background-color: rgba(0, 0, 0, 0.4);
+        color: #C7FF5E;
+    }
+
+
+/* =========================
+   HOME BACKGROUND
+   ========================= */
+
+.home-background {
+    background-image: url('/images/HomeBackground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: calc(100vh - 90px); /* altura total menos header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hero box */
+.hero {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 80px 60px;
+    text-align: center;
+    border-radius: 12px;
+    max-width: 900px;
+}
+
+    /* Hero text */
+    .hero h1 {
+        color: white;
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        color: #ddd;
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+/* Botón principal */
+.btn-hero {
+    background-color: #FF0000;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+    .btn-hero:hover {
+        background-color: #cc0000;
+    }

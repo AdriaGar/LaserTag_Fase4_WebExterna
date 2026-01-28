@@ -23,6 +23,8 @@ public partial class LaserTagContext : DbContext
 
     public virtual DbSet<Puntuacio> Puntuacios { get; set; }
 
+    public virtual DbSet<Reserf> Reserves { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=LaserTagBD;Trusted_Connection=True;TrustServerCertificate=True;");
@@ -74,6 +76,24 @@ public partial class LaserTagContext : DbContext
             entity.HasOne(d => d.IdPartidaNavigation).WithMany(p => p.Puntuacios)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Puntuacio_Partida");
+        });
+
+        modelBuilder.Entity<Reserf>(entity =>
+        {
+            entity.HasKey(e => e.IdReserva).HasName("PK__Reserves__0E49C69DC7E868E2");
+
+            entity.Property(e => e.EstatReserva).HasDefaultValue("Activa");
+            entity.Property(e => e.HoraReserva).HasDefaultValue("10:00");
+
+            entity.HasOne(d => d.EmailJugadorNavigation).WithMany(p => p.Reserves)
+                .HasPrincipalKey(p => p.Email)
+                .HasForeignKey(d => d.EmailJugador)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Reserves__EmailJ__07C12930");
+
+            entity.HasOne(d => d.IdPartidaNavigation).WithMany(p => p.Reserves)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Reserves__IdPart__08B54D69");
         });
 
         OnModelCreatingPartial(modelBuilder);

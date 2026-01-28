@@ -25,4 +25,7 @@ public partial class Partide
 
     [InverseProperty("IdPartidaNavigation")]
     public virtual ICollection<Puntuacio> Puntuacios { get; set; } = new List<Puntuacio>();
+
+    [InverseProperty("IdPartidaNavigation")]
+    public virtual ICollection<Reserf> Reserves { get; set; } = new List<Reserf>();
 }

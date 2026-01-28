@@ -1,0 +1,17 @@
+﻿@page "{id:int}"
+@model Fase4_WebExterna.Pages.Partides.ReservarModel
+
+<h1>Confirmar reserva</h1>
+
+<p>Estàs a punt de reservar aquesta partida:</p>
+
+<ul>
+    <li><strong>Data inici:</strong> @Model.Partida.DataInici</li>
+    <li><strong>Data fi:</strong> @Model.Partida.DataFi</li>
+    <li><strong>Mode joc:</strong> @Model.Partida.ModeJoc</li>
+</ul>
+
+<form method="post">
+    <button type="submit" class="btn btn-primary">Confirmar reserva</button>
+    <a href="/Partides/Index" class="btn btn-secondary">Cancel·lar</a>
+</form>

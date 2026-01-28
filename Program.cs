@@ -1,34 +1,48 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Fase4_WebExterna.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ⭐ Añadir conexión a SQL Server
+// ⭐ DB
 builder.Services.AddDbContext<LaserTagContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("LaserTagBD")));
 
-// Add services to the container.
-builder.Services.AddRazorPages();
+// ⭐ Session
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
 
+// ⭐ Authentication (COOKIES)
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.LogoutPath = "/Account/Logout";
+    });
+
+// Razor Pages
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 
+app.UseStaticFiles();
 app.UseRouting();
 
+// ⭐ MUY IMPORTANTE: authentication ANTES de authorization
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapStaticAssets();
-app.MapRazorPages()
-   .WithStaticAssets();
+app.UseSession();
+
+app.MapRazorPages();
 
 app.Run();

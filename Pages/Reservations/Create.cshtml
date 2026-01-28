@@ -1,0 +1,28 @@
+﻿@page
+@model Fase4_WebExterna.Pages.Reservations.CreateModel
+
+<h1>Reservar Partida</h1>
+
+<form method="post">
+    <label for="data">Selecciona un dia:</label>
+    <input type="date" id="data" asp-for="DataSeleccionada" />
+
+    <label for="hora">Selecciona una hora:</label>
+    <select id="hora" asp-for="HoraSeleccionada">
+        <option value="">-- Selecciona una hora --</option>
+        @foreach (var h in Model.HoresDisponibles)
+        {
+            <option value="@h">@h</option>
+        }
+    </select>
+
+    <br /><br />
+    <button type="submit">Reservar</button>
+</form>
+
+@if (!ViewContext.ModelState.IsValid)
+{
+    <p style="color:red">
+        Error: @ViewContext.ModelState.Values.First().Errors.First().ErrorMessage
+    </p>
+}
