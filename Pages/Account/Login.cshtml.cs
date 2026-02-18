@@ -57,7 +57,8 @@ namespace Fase4_WebExterna.Pages.Account
             {
                 new Claim(ClaimTypes.Name, usuari.Nom),
                 new Claim(ClaimTypes.Email, usuari.Email),
-                new Claim(ClaimTypes.NameIdentifier, usuari.IdJugador.ToString())
+                new Claim(ClaimTypes.NameIdentifier, usuari.IdJugador.ToString()),
+                new Claim(ClaimTypes.Role, usuari.Rol)
             };
 
             var identity = new ClaimsIdentity(

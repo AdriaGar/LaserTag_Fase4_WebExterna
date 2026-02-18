@@ -22,6 +22,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 // Razor Pages
 builder.Services.AddRazorPages();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -43,6 +44,7 @@ app.UseAuthorization();
 
 app.UseSession();
 
+app.MapControllers();
 app.MapRazorPages();
 
 app.Run();

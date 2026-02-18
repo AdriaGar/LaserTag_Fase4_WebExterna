@@ -32,6 +32,10 @@ public partial class Jugador
     [Unicode(false)]
     public string ContrasenyaHash { get; set; } = null!;
 
+    [StringLength(20)]
+    [Unicode(false)]
+    public string Rol { get; set; } = "User";
+
     [InverseProperty("IdJugadorNavigation")]
     public virtual ICollection<Puntuacio> Puntuacios { get; set; } = new List<Puntuacio>();
 

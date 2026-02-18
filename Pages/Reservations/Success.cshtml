@@ -1,7 +1,21 @@
 ﻿@page
+@{
+    ViewData["Title"] = "Reserva completada";
+}
 
-<h1>Reserva completada!</h1>
+<div class="edit-profile-background">
+    <div class="edit-profile-card" style="text-align:center;">
 
-<p>La teva reserva s'ha registrat correctament.</p>
+        <h1>¡Reserva completada!</h1>
 
-<a href="/Account/Profile">Tornar al perfil</a>
+        <p style="margin:20px 0; font-size:16px;">
+            Tu partida ha sido reservada correctamente.<br />
+            ¡Prepárate para la batalla! 🔫
+        </p>
+
+        <a href="/Account/Profile" class="btn-save" style="display:inline-block;">
+            Volver a mi perfil
+        </a>
+
+    </div>
+</div>

@@ -1,7 +1,10 @@
+wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\BackGround.png
+wwwroot\images\default-profile.png
 wwwroot\images\HomeBackground.png
 wwwroot\images\Instalacion1.png
+wwwroot\images\Instalacion2.png
 wwwroot\images\logo.png
 wwwroot\images\MilitarBackground.jpg
 wwwroot\js\site.js
@@ -65,7 +68,7 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\site.css
+C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\wwwroot\css\site.css
 C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\wwwroot\favicon.ico
 C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\wwwroot\js\site.js
 C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -127,4 +130,3 @@ C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\wwwroot\lib\jquery\di
 C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\wwwroot\lib\jquery\LICENSE.txt
-C:\Users\Luca Yeray\source\repos\LaserTag_Fase4_WebExterna\wwwroot\css\site.css
