@@ -14,7 +14,7 @@
 
             <!-- Avatar -->
             <div class="profile-avatar">
-                <img src="/images/MilitarBackground.jpg alt="Avatar">
+                <img src="/images/MilitarBackground.jpg" alt="Avatar">
             </div>
 
             <!-- Info -->
@@ -65,6 +65,81 @@
                     </div>
                 }
             </div>
+        }
+
+        <!-- ESTADÍSTICAS DEL JUGADOR -->
+
+        <h2 class="profile-subtitle">Mis Estadísticas</h2>
+
+        @if (Model.Estadisticas != null)
+        {
+            <div class="stats-container">
+
+                <div class="stat-card">
+                    <h3>@Model.Estadisticas.resumen.partides_jugades</h3>
+                    <p>Partidas Jugadas</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>@Model.Estadisticas.resumen.total_kills</h3>
+                    <p>Kills</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>@Model.Estadisticas.resumen.total_morts</h3>
+                    <p>Muertes</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>@Model.Estadisticas.resumen.total_punts</h3>
+                    <p>Puntos</p>
+                </div>
+
+            </div>
+        }
+        else
+        {
+            <p>No hay estadísticas disponibles.</p>
+        }
+
+        <!-- HISTORIAL DE PARTIDAS -->
+
+        <h2 class="profile-subtitle">Historial de Partidas</h2>
+
+        @if (Model.Estadisticas != null && Model.Estadisticas.historial != null && Model.Estadisticas.historial.Any())
+        {
+            <table class="history-table">
+
+                <thead>
+                    <tr>
+                        <th>Partida</th>
+                        <th>Puntos</th>
+                        <th>Kills</th>
+                        <th>Muertes</th>
+                        <th>Posición</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var partida in Model.Estadisticas.historial)
+                    {
+                        <tr>
+                            <td>@partida.id_partida</td>
+                            <td>@partida.punts</td>
+                            <td>@partida.kills</td>
+                            <td>@partida.morts</td>
+                            <td>@partida.posicio</td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+        }
+        else
+        {
+            <p>No hay partidas registradas.</p>
         }
 
     </div>

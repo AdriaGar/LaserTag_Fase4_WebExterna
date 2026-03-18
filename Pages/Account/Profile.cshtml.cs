@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Fase4_WebExterna.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
+using System.Net.Http;
 
 namespace Fase4_WebExterna.Pages.Account
 {
@@ -16,6 +18,9 @@ namespace Fase4_WebExterna.Pages.Account
 
         public Jugador Jugador { get; set; }
         public List<Reserf> Reserves { get; set; }
+
+        // NUEVO → estadísticas del backend GO
+        public PerfilJugadorStats Estadisticas { get; set; }
 
         public void OnGet()
         {
@@ -34,6 +39,38 @@ namespace Fase4_WebExterna.Pages.Account
                 .Include(r => r.IdPartidaNavigation)
                 .Where(r => r.EmailJugador == email && r.EstatReserva == "Activa")
                 .ToList();
+
+            // ==========================
+            // Obtener estadísticas del backend GO
+            // ==========================
+
+            try
+            {
+                var client = new HttpClient();
+
+                string jugadorId = "jugador_" + Jugador.IdJugador;
+
+                var url = $"http://192.168.0.100:3000/jugador/{jugadorId}/perfil-complet";
+
+                var response = client.GetAsync(url).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = response.Content.ReadAsStringAsync().Result;
+
+                    Estadisticas = JsonSerializer.Deserialize<PerfilJugadorStats>(
+                        json,
+                        new JsonSerializerOptions
+                        {
+                            PropertyNameCaseInsensitive = true
+                        });
+                }
+            }
+            catch
+            {
+                // Si falla el endpoint no rompe el perfil
+                Estadisticas = null;
+            }
         }
 
         public IActionResult OnPostCancel(int idReserva)
@@ -45,7 +82,7 @@ namespace Fase4_WebExterna.Pages.Account
             // Buscar reserva
             var reserva = _context.Reserves.FirstOrDefault(r => r.IdReserva == idReserva && r.EmailJugador == email);
             if (reserva == null)
-                return RedirectToPage(); // no existe o no pertenece al usuario
+                return RedirectToPage();
 
             // Buscar partida asociada
             var partida = _context.Partides.FirstOrDefault(p => p.IdPartida == reserva.IdPartida);
@@ -59,7 +96,7 @@ namespace Fase4_WebExterna.Pages.Account
 
             _context.SaveChanges();
 
-            return RedirectToPage(); // refresca el perfil
+            return RedirectToPage();
         }
     }
 }
