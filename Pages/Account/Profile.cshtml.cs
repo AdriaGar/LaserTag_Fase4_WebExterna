@@ -48,7 +48,7 @@ namespace Fase4_WebExterna.Pages.Account
             {
                 var client = new HttpClient();
 
-                string jugadorId = "jugador_" + Jugador.IdJugador;
+                string jugadorId = Jugador.IdJugador.ToString();
 
                 var url = $"http://192.168.0.100:3000/jugador/{jugadorId}/perfil-complet";
 

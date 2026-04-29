@@ -1,0 +1,44 @@
+﻿@page
+@model Fase4_WebExterna.Pages.Admin.ReservasModel
+
+<div class="admin-page">
+
+    <h1>📅 Gestión de Reservas</h1>
+
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Modo</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in Model.Reservas)
+            {
+                <tr>
+                    <td>@r.IdReserva</td>
+                    <td>@r.EmailJugador</td>
+                    <td>@r.DataReserva</td>
+                    <td>@r.HoraReserva</td>
+                    <td>@r.IdPartidaNavigation?.ModeJoc</td>
+                    <td>@r.EstatReserva</td>
+                    <td>
+                        <form method="post" asp-page-handler="Delete"
+                              onsubmit="return confirm('¿Cancelar reserva?');">
+
+                            <input type="hidden" name="id" value="@r.IdReserva" />
+
+                            <button class="btn-delete">❌</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

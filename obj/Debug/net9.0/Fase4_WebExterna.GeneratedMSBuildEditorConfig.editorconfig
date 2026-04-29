@@ -54,6 +54,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Luca Yeray/source/repos/LaserTag_Fase4_WebExterna/Pages/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Luca Yeray/source/repos/LaserTag_Fase4_WebExterna/Pages/Admin/Reservas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUmVzZXJ2YXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Luca Yeray/source/repos/LaserTag_Fase4_WebExterna/Pages/Admin/Users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Luca Yeray/source/repos/LaserTag_Fase4_WebExterna/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -80,6 +92,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Luca Yeray/source/repos/LaserTag_Fase4_WebExterna/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Luca Yeray/source/repos/LaserTag_Fase4_WebExterna/Pages/Ranking/Ranking.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmFua2luZ1xSYW5raW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Luca Yeray/source/repos/LaserTag_Fase4_WebExterna/Pages/Reservations/Create.cshtml]

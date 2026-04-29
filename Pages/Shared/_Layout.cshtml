@@ -22,10 +22,18 @@
             <a asp-page="/Instalaciones">Instalaciones</a>
             <a asp-page="/Reservations/Create">Reservar</a>
 
+            <!-- 👇 AÑADE ESTO -->
+            <a asp-page="/Ranking/Ranking">Ranking</a>
+
             @* SOLO si está logueado *@
             @if (User.Identity != null && User.Identity.IsAuthenticated)
             {
                 <a asp-page="/Account/Profile">Perfil</a>
+            }
+
+            @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <a asp-page="/Admin/Dashboard">Admin</a>
             }
         </nav>
 

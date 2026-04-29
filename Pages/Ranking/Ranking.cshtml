@@ -1,0 +1,71 @@
+﻿@page
+@model RankingModel
+
+<div class="ranking-page">
+
+    <h1 class="title">🏆 Ranking Global</h1>
+
+    <!-- 🏆 PODIUM -->
+    <div class="podium">
+        @{
+            var top3 = Model.Ranking.Take(3).ToList();
+        }
+
+        @if (top3.Count >= 2)
+        {
+            <div class="podium-item second">
+                <h2>🥈</h2>
+                <p>@top3[1].nom</p>
+                <span>@top3[1].total_punts pts</span>
+            </div>
+        }
+
+        @if (top3.Count >= 1)
+        {
+            <div class="podium-item first">
+                <h2>🥇</h2>
+                <p>@top3[0].nom</p>
+                <span>@top3[0].total_punts pts</span>
+            </div>
+        }
+
+        @if (top3.Count >= 3)
+        {
+            <div class="podium-item third">
+                <h2>🥉</h2>
+                <p>@top3[2].nom</p>
+                <span>@top3[2].total_punts pts</span>
+            </div>
+        }
+    </div>
+
+    <!-- 📊 TABLA -->
+    <table class="ranking-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Jugador</th>
+                <th>Puntos</th>
+                <th>Kills</th>
+                <th>Muertes</th>
+                <th>K/D</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var j in Model.Ranking)
+            {
+                var kd = j.total_morts == 0 ? j.total_kills : (double)j.total_kills / j.total_morts;
+
+                <tr>
+                    <td>@j.posicio</td>
+                    <td>@j.nom</td>
+                    <td>@j.total_punts</td>
+                    <td>@j.total_kills</td>
+                    <td>@j.total_morts</td>
+                    <td>@kd.ToString("0.00")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
