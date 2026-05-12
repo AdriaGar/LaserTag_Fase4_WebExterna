@@ -26,13 +26,21 @@ namespace Fase4_WebExterna.Pages.Reservations
         [BindProperty]
         public string HoraSeleccionada { get; set; }
 
+        // NUEVO
+        [BindProperty]
+        public string SalaSeleccionada { get; set; }
+
+        [BindProperty]
+        public string ModeJocSeleccionat { get; set; }
+
         public List<string> HoresDisponibles { get; set; }
 
+        // GENERAR HORAS
 
-        // 🔵 Método para regenerar horas (lo usaremos en GET y POST)
         private void GenerarHores()
         {
             HoresDisponibles = new List<string>();
+
             for (int hora = 9; hora <= 21; hora++)
             {
                 HoresDisponibles.Add($"{hora:00}:00");
@@ -42,6 +50,7 @@ namespace Fase4_WebExterna.Pages.Reservations
         public void OnGet()
         {
             var email = HttpContext.Session.GetString("UserEmail");
+
             if (email == null)
             {
                 Response.Redirect("/Account/Login");
@@ -49,6 +58,7 @@ namespace Fase4_WebExterna.Pages.Reservations
             }
 
             Partides = _context.Partides.ToList();
+
             GenerarHores();
         }
 
@@ -59,22 +69,43 @@ namespace Fase4_WebExterna.Pages.Reservations
             if (email == null)
                 return RedirectToPage("/Account/Login");
 
-            // Regenerar horas en POST
+            // REGENERAR HORAS
+
             GenerarHores();
 
-            // Validar fecha
+            // VALIDAR FECHA
+
             if (string.IsNullOrEmpty(DataSeleccionada))
             {
                 ModelState.AddModelError("", "Has de seleccionar una data.");
                 return Page();
             }
 
-            // Validar hora
+            // VALIDAR HORA
+
             if (string.IsNullOrEmpty(HoraSeleccionada))
             {
                 ModelState.AddModelError("", "Has de seleccionar una hora.");
                 return Page();
             }
+
+            // VALIDAR SALA
+
+            if (string.IsNullOrEmpty(SalaSeleccionada))
+            {
+                ModelState.AddModelError("", "Has de seleccionar una sala.");
+                return Page();
+            }
+
+            // VALIDAR MODO
+
+            if (string.IsNullOrEmpty(ModeJocSeleccionat))
+            {
+                ModelState.AddModelError("", "Has de seleccionar un mode de joc.");
+                return Page();
+            }
+
+            // VALIDAR FECHA PASADA
 
             DateTime data = DateTime.Parse($"{DataSeleccionada} {HoraSeleccionada}");
 
@@ -84,44 +115,55 @@ namespace Fase4_WebExterna.Pages.Reservations
                 return Page();
             }
 
-            // 🔒 1️⃣ VALIDAR SI YA EXISTE UNA PARTIDA A ESA HORA
-            string dataIniciText = data.ToString("yyyy-MM-dd HH:mm");
+            // VALIDAR SI LA SALA YA ESTÁ RESERVADA
 
-            var partidaExistente = _context.Partides
-                .FirstOrDefault(p => p.DataInici == dataIniciText);
+            var reservaExistente = _context.Reserves
+                .Include(r => r.IdPartidaNavigation)
+                .FirstOrDefault(r =>
+                    r.DataReserva == DataSeleccionada &&
+                    r.HoraReserva == HoraSeleccionada &&
+                    r.Sala == SalaSeleccionada &&
+                    r.EstatReserva == "Activa"
+                );
 
-            if (partidaExistente != null)
+            if (reservaExistente != null)
             {
-                ModelState.AddModelError("", "Ja existeix una partida reservada en aquesta data i hora.");
+                ModelState.AddModelError("", "Aquesta sala ja està reservada en aquesta hora.");
                 return Page();
             }
 
-            // 2️⃣ CREAR PARTIDA
+            // CREAR PARTIDA
+
+            string dataIniciText = data.ToString("yyyy-MM-dd HH:mm");
+
             var novaPartida = new Partide
             {
                 DataInici = dataIniciText,
                 DataFi = data.AddHours(1).ToString("yyyy-MM-dd HH:mm"),
-                ModeJoc = "Estàndard"
+                ModeJoc = ModeJocSeleccionat
             };
 
             _context.Partides.Add(novaPartida);
+
             _context.SaveChanges();
 
-            // 3️⃣ CREAR RESERVA
+            // CREAR RESERVA
+
             var reserva = new Reserf
             {
                 EmailJugador = email,
                 IdPartida = novaPartida.IdPartida,
                 DataReserva = DataSeleccionada,
                 HoraReserva = HoraSeleccionada,
-                EstatReserva = "Activa"
+                EstatReserva = "Activa",
+                Sala = SalaSeleccionada
             };
 
             _context.Reserves.Add(reserva);
+
             _context.SaveChanges();
 
             return RedirectToPage("/Reservations/Success");
         }
-
     }
 }

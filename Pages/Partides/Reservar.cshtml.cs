@@ -17,12 +17,10 @@ namespace Fase4_WebExterna.Pages.Partides
 
         public IActionResult OnGet(int id)
         {
-            // 1. Usuari logat?
             var email = HttpContext.Session.GetString("UserEmail");
             if (email == null)
                 return RedirectToPage("/Account/Login");
 
-            // 2. Comprovar partida
             Partida = _context.Partides.FirstOrDefault(p => p.IdPartida == id);
 
             if (Partida == null)

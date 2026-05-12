@@ -29,6 +29,10 @@ public partial class Reserf
     [Unicode(false)]
     public string HoraReserva { get; set; } = null!;
 
+    [StringLength(50)]
+    [Unicode(false)]
+    public string? Sala { get; set; }
+
     [ForeignKey("EmailJugador")]
     [InverseProperty("Reserves")]
     public virtual Jugador EmailJugadorNavigation { get; set; } = null!;

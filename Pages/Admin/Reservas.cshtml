@@ -6,6 +6,7 @@
     <h1>📅 Gestión de Reservas</h1>
 
     <table class="admin-table">
+
         <thead>
             <tr>
                 <th>ID</th>
@@ -13,32 +14,55 @@
                 <th>Fecha</th>
                 <th>Hora</th>
                 <th>Modo</th>
+                <th>Sala</th>
                 <th>Estado</th>
                 <th>Acciones</th>
             </tr>
         </thead>
+
         <tbody>
+
             @foreach (var r in Model.Reservas)
             {
                 <tr>
+
                     <td>@r.IdReserva</td>
+
                     <td>@r.EmailJugador</td>
+
                     <td>@r.DataReserva</td>
+
                     <td>@r.HoraReserva</td>
+
                     <td>@r.IdPartidaNavigation?.ModeJoc</td>
+
+                    <td>@r.Sala</td>
+
                     <td>@r.EstatReserva</td>
+
                     <td>
-                        <form method="post" asp-page-handler="Delete"
+
+                        <form method="post"
+                              asp-page-handler="Delete"
                               onsubmit="return confirm('¿Cancelar reserva?');">
 
-                            <input type="hidden" name="id" value="@r.IdReserva" />
+                            <input type="hidden"
+                                   name="id"
+                                   value="@r.IdReserva" />
 
-                            <button class="btn-delete">❌</button>
+                            <button class="btn-delete">
+                                ❌
+                            </button>
+
                         </form>
+
                     </td>
+
                 </tr>
             }
+
         </tbody>
+
     </table>
 
 </div>

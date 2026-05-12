@@ -5,6 +5,7 @@
 }
 
 <div class="edit-profile-background">
+
     <div class="edit-profile-card">
 
         <h1>Reservar Partida</h1>
@@ -13,17 +14,49 @@
 
             <div class="form-group">
                 <label>Selecciona un día</label>
+
                 <input type="date" asp-for="DataSeleccionada" />
             </div>
 
             <div class="form-group">
                 <label>Selecciona una hora</label>
+
                 <select asp-for="HoraSeleccionada">
                     <option value="">-- Selecciona una hora --</option>
+
                     @foreach (var h in Model.HoresDisponibles)
                     {
                         <option value="@h">@h</option>
                     }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Selecciona una sala</label>
+
+                <select asp-for="SalaSeleccionada">
+                    <option value="">-- Selecciona una sala --</option>
+                    <option value="Sala 1">Sala 1</option>
+                    <option value="Sala 2">Sala 2</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Selecciona un modo de juego</label>
+
+                <select asp-for="ModeJocSeleccionat">
+                    <option value="">-- Selecciona un modo --</option>
+                    <option value="Todos contra todos">
+                        Todos contra todos
+                    </option>
+
+                    <option value="Por equipos">
+                        Por equipos
+                    </option>
+
+                    <option value="Captura la bandera">
+                        Captura la bandera
+                    </option>
                 </select>
             </div>
 
@@ -41,4 +74,5 @@
         </form>
 
     </div>
+
 </div>
